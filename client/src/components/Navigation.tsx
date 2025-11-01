@@ -1,5 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { MobileMenu } from "@/components/MobileMenu";
+import mascoteLogo from "@assets/Gemini_Generated_Image_a20m34a20m34a20m (1)_1762029850291.png";
 
 export function Navigation() {
   const [location] = useLocation();
@@ -13,14 +15,18 @@ export function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="flex h-16 items-center justify-between px-6 md:px-12">
+      <div className="flex h-20 items-center justify-between px-4 md:px-12">
         <Link href="/">
-          <a className="text-xl font-bold bg-gradient-to-r from-[#bf46f3] to-[#4c66f4] bg-clip-text text-transparent hover:opacity-80 transition-opacity" data-testid="link-home">
-            NeuroRace
-          </a>
+          <div className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer" data-testid="link-home">
+            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" />
+            <span className="text-xl md:text-2xl font-bold">
+              <span className="text-primary">NEURO</span>
+              <span className="text-accent">RACE</span>
+            </span>
+          </div>
         </Link>
 
-        <ul className="flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -36,21 +42,24 @@ export function Navigation() {
             </li>
           ))}
           <li>
-            <a
-              href="https://www.fiap.com.br/next/"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-vote"
+            <Button
+              asChild
+              className="bg-primary hover:opacity-90 text-primary-foreground"
+              size="sm"
             >
-              <Button
-                className="bg-gradient-to-r from-[#bf46f3] to-[#4c66f4] hover:opacity-90"
-                size="sm"
+              <a
+                href="https://www.fiap.com.br/next/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="link-vote"
               >
                 VOTE NO NEXT!
-              </Button>
-            </a>
+              </a>
+            </Button>
           </li>
         </ul>
+
+        <MobileMenu navItems={navItems} />
       </div>
     </nav>
   );

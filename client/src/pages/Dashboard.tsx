@@ -62,7 +62,7 @@ export default function Dashboard() {
         />
 
         {!searchEmail && (
-          <div className="flex gap-3 max-w-md mx-auto mb-12">
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-12 px-4">
             <Input
               type="email"
               placeholder="Digite seu email de cadastro"
@@ -70,8 +70,9 @@ export default function Dashboard() {
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               data-testid="input-email"
+              className="flex-1"
             />
-            <Button onClick={handleSearch} data-testid="button-search">
+            <Button onClick={handleSearch} data-testid="button-search" className="sm:w-auto">
               Buscar Análise
             </Button>
           </div>
@@ -84,17 +85,17 @@ export default function Dashboard() {
         )}
 
         {playerData && (
-          <div className="space-y-6">
+          <div className="space-y-6 px-4">
             <Card className="border-l-4 border-l-primary">
               <CardContent className="pt-6">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm md:text-base text-muted-foreground">
                   <strong className="text-foreground">Curiosidade:</strong> O cérebro é como um músculo. 
                   Quanto mais você treina seu foco, mais forte e resiliente ele fica!
                 </p>
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               <MetricCard
                 icon="🎯"
                 title="Foco (TZF)"

@@ -36,13 +36,13 @@ export function PerformanceChart({ tzfSeries }: PerformanceChartProps) {
       {
         label: "TZF (%)",
         data: tzfSeries.map(v => v * 100),
-        borderColor: "#bf46f3",
-        backgroundColor: "rgba(191, 70, 243, 0.1)",
+        borderColor: "#00CED1",
+        backgroundColor: "rgba(0, 206, 209, 0.1)",
         tension: 0.4,
         borderWidth: 3,
         pointRadius: 5,
         pointHoverRadius: 7,
-        pointBackgroundColor: "#4c66f4",
+        pointBackgroundColor: "#FF5C8D",
       },
     ],
   };

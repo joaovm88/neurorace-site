@@ -22,7 +22,7 @@ export default function Ranking() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="container max-w-4xl mx-auto px-6 py-12">
+      <main className="container max-w-4xl mx-auto px-4 md:px-6 py-12">
         <PageHeader
           title="Ranking Geral"
           subtitle="Veja os pilotos mais focados do evento em tempo real."

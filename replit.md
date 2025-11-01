@@ -1,0 +1,154 @@
+# NeuroRace
+
+## Overview
+
+NeuroRace is a neurofeedback-based racing application that measures and analyzes player focus and cognitive performance during kart racing events. The system collects real-time brainwave data to provide insights into concentration levels, mental resilience, and performance consistency. Players can view their performance metrics, compare against others on a leaderboard, and track their progress over multiple sessions.
+
+The application serves as an interactive demonstration piece for events (specifically FIAP NEXT 2025), combining hardware neurofeedback sensors with a web-based dashboard for visualization and engagement.
+
+## User Preferences
+
+Preferred communication style: Simple, everyday language.
+
+## System Architecture
+
+### Frontend Architecture
+
+**Technology Stack:**
+- **Framework:** React 18 with TypeScript
+- **Routing:** Wouter (lightweight client-side routing)
+- **UI Components:** Radix UI primitives with shadcn/ui styling system
+- **Styling:** Tailwind CSS with custom design tokens
+- **Data Visualization:** Chart.js for performance graphs
+- **State Management:** TanStack Query (React Query) for server state
+- **Build Tool:** Vite
+
+**Design System:**
+- Dark gaming-inspired theme based on GitHub's color palette
+- Custom color scheme with purple-to-blue gradient accents (#bf46f3 to #4c66f4)
+- Poppins font family (400, 500, 700 weights)
+- Component library using shadcn/ui "new-york" style preset
+- Responsive layout with mobile-first approach
+
+**Key Pages:**
+1. Home - Project introduction and feature explanations
+2. Ranking - Global leaderboard of top performers
+3. Dashboard - Individual player performance analytics
+4. RaceFinished - Post-race results with QR codes for dashboard access
+5. Equipe (Team) - Team member information
+
+**State Management Approach:**
+- React Query handles all server state with custom query functions
+- Local component state for UI interactions
+- No global state management library (Redux, etc.) - keeping it simple
+- Query caching disabled (staleTime: Infinity) for demo consistency
+
+### Backend Architecture
+
+**Technology Stack:**
+- **Runtime:** Node.js with TypeScript
+- **Framework:** Express.js
+- **Development:** tsx for TypeScript execution
+- **Build:** esbuild for production bundling
+
+**Server Structure:**
+- Single entry point (`server/index.ts`) with middleware setup
+- Route registration pattern through `registerRoutes` function
+- Request/response logging with duration tracking
+- JSON body parsing with raw body capture for webhook support
+- HTTP server creation for potential WebSocket upgrades
+
+**Storage Layer:**
+- Interface-based storage abstraction (`IStorage`)
+- In-memory implementation (`MemStorage`) for development/demo
+- Designed for easy swap to database implementation
+- Currently includes mock data for testing purposes
+
+**API Design:**
+- RESTful endpoints prefixed with `/api`
+- CRUD operations abstracted through storage interface
+- Session-based data model (no authentication required for demo)
+
+### Data Storage Solutions
+
+**Schema Design (Drizzle ORM):**
+
+Three core tables defined in `shared/schema.ts`:
+
+1. **Players Table:**
+   - Primary key: email (varchar)
+   - Phone number for contact
+   - Minimal user profile for event participation
+
+2. **Sessions Table:**
+   - Unique session ID
+   - References player by email
+   - Neurofeedback metrics:
+     - `tzf` (Time in Zone Focus) - primary performance metric
+     - `cvfLabel` (Consistency) - "estavel" or "oscilante"
+     - `ircLabel` (Resilience) - "baixo", "medio", "alto"
+     - `lfoMean` (Low Frequency Oscillations) - neural recovery metric
+   - Badge system stored as JSONB
+   - Timestamp tracking
+
+3. **Stats Table:**
+   - Player personal bests and records
+   - TZF personal best (`tzfPB`)
+   - Focus sequence record (`trzPBsec`)
+   - Historical TZF series (array of doubles)
+
+**Database Configuration:**
+- Configured for PostgreSQL via Drizzle Kit
+- Migration directory: `./migrations`
+- Environment-based connection string
+- Schema validation using Zod
+
+**Current State:**
+- In-memory storage for demo/development
+- Mock data pre-populated for testing
+- Production-ready schema defined but not actively used
+- Easy migration path to PostgreSQL when needed
+
+### External Dependencies
+
+**Third-Party Services:**
+- **Google Fonts:** Poppins font family via CDN
+- **QRCode Generation:** `qrcode` library for dashboard access links
+- **Neon Database:** PostgreSQL serverless database (configured but not actively used)
+
+**Key Libraries:**
+- **@tanstack/react-query:** Server state management and caching
+- **chart.js & react-chartjs-2:** Performance visualization
+- **drizzle-orm & drizzle-kit:** Database ORM and migrations
+- **@neondatabase/serverless:** PostgreSQL driver for serverless environments
+- **wouter:** Lightweight routing (~1.2KB)
+- **zod:** Runtime type validation and schema definitions
+- **nanoid:** Unique ID generation
+
+**Development Tools:**
+- **Replit-specific plugins:** Runtime error modal, cartographer, dev banner
+- **Vite plugins:** React, build optimization
+- **TypeScript:** Type safety across full stack
+
+**UI Component Dependencies:**
+All Radix UI primitives for accessible, unstyled components:
+- Dialog, Popover, Dropdown, Tooltip
+- Accordion, Tabs, Navigation Menu
+- Form controls (Checkbox, Radio, Select, Slider, Switch)
+- Data display (Avatar, Badge, Card, Table)
+- Feedback (Alert, Toast, Progress)
+
+**Session Management:**
+- `connect-pg-simple` for PostgreSQL session store (available but not configured)
+- `express-session` likely for future authentication needs
+
+**Styling Dependencies:**
+- **tailwindcss:** Utility-first CSS framework
+- **autoprefixer:** CSS vendor prefixing
+- **class-variance-authority:** Component variant management
+- **tailwind-merge & clsx:** Conditional class merging
+
+**Build & Development:**
+- Custom Vite configuration with path aliases (@, @shared, @assets)
+- ESBuild for fast production builds
+- TSX for development TypeScript execution

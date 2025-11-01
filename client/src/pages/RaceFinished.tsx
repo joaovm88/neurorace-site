@@ -23,13 +23,13 @@ export default function RaceFinished() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="container max-w-6xl mx-auto px-6 py-12">
+      <main className="container max-w-6xl mx-auto px-4 md:px-6 py-12">
         <PageHeader
           title="Corrida Finalizada"
           subtitle="Escaneie o QR Code para ver sua análise completa de performance."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-testid="grid-results">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-testid="grid-results">
           {players.map((player) => (
             <PlayerResultCard key={player.playerNumber} {...player} />
           ))}
