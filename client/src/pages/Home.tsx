@@ -117,7 +117,6 @@ export default function Home() {
         </div>
 
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Frases que Inspiram</h3>
           <QuoteCarousel />
         </div>
 
@@ -164,7 +163,7 @@ export default function Home() {
           <img 
             src={mascoteCorrendo} 
             alt="Mascote Correndo" 
-            className="w-48 mx-auto mb-6 bg-background rounded-full p-4"
+            className="w-48 mx-auto mb-6"
           />
           <h3 className="text-2xl font-bold mb-4">
             Pronto para testar sua concentração?
