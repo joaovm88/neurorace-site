@@ -53,10 +53,10 @@ export default function Dashboard() {
       <Navigation />
       <main className="container max-w-6xl mx-auto px-6 py-12">
         <PageHeader
-          title="Meu Dashboard Pessoal"
+          title={searchEmail ? `Dashboard do(a) Competidor(a)` : "Dashboard do(a) Competidor(a)"}
           subtitle={
             searchEmail
-              ? `Exibindo a análise de ${searchEmail}`
+              ? `Análise de desempenho de ${searchEmail}`
               : "Digite seu email para carregar sua análise de desempenho."
           }
         />

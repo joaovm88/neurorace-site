@@ -14,11 +14,10 @@ export function TeamMemberCard({ name, rm, role, linkedinUrl, githubUrl }: TeamM
   return (
     <Card className="hover-elevate" data-testid={`card-team-${name.toLowerCase().replace(/\s+/g, '-')}`}>
       <CardHeader>
-        <CardTitle>{name}</CardTitle>
-        <p className="text-sm text-muted-foreground">RM {rm}</p>
+        <CardTitle className="text-xl">{name}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-muted-foreground mb-4">{role}</p>
+        <p className="text-muted-foreground mb-4 min-h-[48px]">{role}</p>
         <div className="flex gap-2">
           {linkedinUrl && (
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">

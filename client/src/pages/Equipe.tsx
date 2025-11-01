@@ -6,29 +6,34 @@ export default function Equipe() {
   const teamMembers = [
     {
       name: "Ester Santos da Silva",
-      rm: "558710",
-      role: "Desenvolvedora | UX/UI e Front-end",
+      rm: "1",
+      role: "Desenvolvedora | Front-end",
+      linkedinUrl: "https://www.linkedin.com/in/ester-silvaa/",
     },
     {
       name: "João Victor Moreira",
-      rm: "563608",
-      role: "Scrum Master | Firebase e Front-end",
+      rm: "2",
+      role: "Desenvolvedor | Front-end",
+      linkedinUrl: "https://www.linkedin.com/in/jvmadv/",
       githubUrl: "https://github.com/tavares-fiap/NeuroRace",
     },
     {
       name: "Nikolas Rodrigues Moura dos Santos",
-      rm: "563466",
+      rm: "3",
       role: "Desenvolvedor | Backend e Banco de Dados",
+      linkedinUrl: "https://www.linkedin.com/in/nikolas-dos-santos/",
     },
     {
       name: "Pedro Henrique Pedrosa Tavares",
-      rm: "563467",
-      role: "Desenvolvedor | Hardware e IoT",
+      rm: "4",
+      role: "Desenvolvedor | Backend",
+      linkedinUrl: "https://www.linkedin.com/in/phptavares/",
     },
     {
       name: "Thiago Jardim de Oliveira",
-      rm: "563656",
-      role: "Desenvolvedor | Integração e Testes",
+      rm: "5",
+      role: "Desenvolvedor | Backend",
+      linkedinUrl: "https://www.linkedin.com/in/thiago-jardim-de-oliveira-490164298/",
     },
   ];
 

@@ -7,10 +7,12 @@ export function Navigation() {
   const [location] = useLocation();
 
   const navItems = [
+    { href: "/premiacao", label: "Premiação" },
+    { href: "/publique", label: "Publique sua Experiência" },
     { href: "/", label: "O Projeto" },
     { href: "/ranking", label: "Ranking" },
     { href: "/equipe", label: "Equipe" },
-    { href: "/dashboard", label: "Meu Dashboard" },
+    { href: "/dashboard", label: "Dashboard" },
   ];
 
   return (
@@ -21,12 +23,28 @@ export function Navigation() {
             <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" />
             <span className="text-xl md:text-2xl font-bold">
               <span className="text-primary">NEURO</span>
-              <span className="text-accent">RACE</span>
+              <span style={{color: 'hsl(45 100% 52%)'}}>RACE</span>
             </span>
           </div>
         </Link>
 
         <ul className="hidden md:flex items-center gap-6">
+          <li>
+            <Button
+              asChild
+              className="bg-primary hover:opacity-90 text-primary-foreground font-bold"
+              size="default"
+            >
+              <a
+                href="https://www.fiap.com.br/next/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="link-vote-primary"
+              >
+                VOTE NO NEXT!
+              </a>
+            </Button>
+          </li>
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -41,22 +59,6 @@ export function Navigation() {
               </Link>
             </li>
           ))}
-          <li>
-            <Button
-              asChild
-              className="bg-primary hover:opacity-90 text-primary-foreground"
-              size="sm"
-            >
-              <a
-                href="https://www.fiap.com.br/next/"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="link-vote"
-              >
-                VOTE NO NEXT!
-              </a>
-            </Button>
-          </li>
         </ul>
 
         <MobileMenu navItems={navItems} />

@@ -25,6 +25,23 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
       {isOpen && (
         <div className="absolute top-20 left-0 right-0 bg-card border-b shadow-lg z-40">
           <ul className="flex flex-col p-4 space-y-3">
+            <li>
+              <Button
+                asChild
+                className="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold"
+                size="default"
+              >
+                <a
+                  href="https://www.fiap.com.br/next/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  data-testid="mobile-link-vote-primary"
+                >
+                  VOTE NO NEXT!
+                </a>
+              </Button>
+            </li>
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>
@@ -42,23 +59,6 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
                 </Link>
               </li>
             ))}
-            <li>
-              <Button
-                asChild
-                className="w-full bg-primary hover:opacity-90 text-primary-foreground"
-                size="sm"
-              >
-                <a
-                  href="https://www.fiap.com.br/next/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  data-testid="mobile-link-vote"
-                >
-                  VOTE NO NEXT!
-                </a>
-              </Button>
-            </li>
           </ul>
         </div>
       )}
