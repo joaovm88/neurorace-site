@@ -30,14 +30,14 @@ export function Navigation() {
           {navItems.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
-                <a
-                  className={`text-sm font-medium transition-colors hover:text-foreground ${
+                <span
+                  className={`text-sm font-medium transition-colors hover:text-foreground cursor-pointer ${
                     location === item.href ? "text-foreground" : "text-muted-foreground"
                   }`}
                   data-testid={`link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {item.label}
-                </a>
+                </span>
               </Link>
             </li>
           ))}
