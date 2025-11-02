@@ -18,7 +18,7 @@ export function Navigation() {
       <div className="flex h-20 items-center justify-between px-4 md:px-12">
         <Link href="/">
           <div className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer" data-testid="link-home">
-            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" />
+            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" style={{mixBlendMode: 'screen'}} />
             <span className="text-xl md:text-2xl font-bold">
               <span className="text-primary">NEURO</span>
               <span style={{color: 'hsl(45 100% 52%)'}}>RACE</span>

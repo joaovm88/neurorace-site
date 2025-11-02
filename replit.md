@@ -59,6 +59,8 @@ Preferred communication style: Simple, everyday language.
    - Hero section: Brain holding trophy, celebrating victory (imagem 2)
    - Final section: Brain running with determined expression (imagem 3)
    - New images come with built-in dark backgrounds matching site theme
+   - Applied CSS mix-blend-mode: screen to all mascot images for seamless integration with page background
+   - Blend mode makes dark backgrounds fade into page background, highlighting the brain characters
 
 ## System Architecture
 
