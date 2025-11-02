@@ -34,6 +34,10 @@ Preferred communication style: Simple, everyday language.
    - Shows badges for "Mais Recente" (most recent) and "Recorde Pessoal" (personal record)
    - Each session displays: Date/Time, TZF, Consistency, Resilience, LFO metrics
 
+5. **Dark Mode as Default:**
+   - Site now loads in dark mode by default
+   - Applied `class="dark"` to HTML element for consistent dark theme experience
+
 ## System Architecture
 
 ### Frontend Architecture
