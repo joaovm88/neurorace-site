@@ -10,6 +10,30 @@ The application serves as an interactive demonstration piece for events (specifi
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (November 2, 2025)
+
+1. **Design System Update:**
+   - Updated dark mode color palette to futuristic neuroscience theme
+   - Background changed from GitHub-inspired to deep navy (#0a192f)
+   - Primary color: Cyan/Turquoise (#00CED1)
+   - Accent: Pink (#FF5C8D)
+   - Highlight: Yellow (#FFC107)
+
+2. **Content Consolidation:**
+   - Moved "Premiação" (competition prizes) section to Home page
+   - Moved "Publique sua Experiência" (social sharing) section to Home page
+   - Removed standalone /premiacao and /publique routes
+
+3. **Navigation Reorganization:**
+   - Simplified to: VOTE NO NEXT → Dashboard → Ranking → Equipe
+   - Enhanced VOTE NO NEXT button with gradient background, larger size, star emoji, and animation
+
+4. **Dashboard Enhancements:**
+   - Added "Histórico de Corridas" (Race History) feature
+   - Displays multiple race sessions with timestamps
+   - Shows badges for "Mais Recente" (most recent) and "Recorde Pessoal" (personal record)
+   - Each session displays: Date/Time, TZF, Consistency, Resilience, LFO metrics
+
 ## System Architecture
 
 ### Frontend Architecture
@@ -24,18 +48,28 @@ Preferred communication style: Simple, everyday language.
 - **Build Tool:** Vite
 
 **Design System:**
-- Dark gaming-inspired theme based on GitHub's color palette
-- Custom color scheme with purple-to-blue gradient accents (#bf46f3 to #4c66f4)
+- Dark futuristic theme with neuroscience-inspired colors (Updated: Nov 2, 2025)
+- Background: #0a192f (HSL 217, 75%, 11%) - Deep navy blue
+- Card/Surface: #12151B (HSL 217, 22%, 9%) - Darker navy
+- Text: #E6F1FF (HSL 216, 100%, 95%) - Light cyan-white
+- Primary: #00CED1 (Cyan/Turquoise) - HSL 181, 100%, 41%
+- Accent: #FF5C8D (Pink) - HSL 340, 100%, 68%
+- Highlight: #FFC107 (Yellow) - HSL 45, 100%, 52%
 - Poppins font family (400, 500, 700 weights)
 - Component library using shadcn/ui "new-york" style preset
 - Responsive layout with mobile-first approach
 
 **Key Pages:**
-1. Home - Project introduction and feature explanations
-2. Ranking - Global leaderboard of top performers
-3. Dashboard - Individual player performance analytics
-4. RaceFinished - Post-race results with QR codes for dashboard access
-5. Equipe (Team) - Team member information
+1. Home - Project introduction, feature explanations, competition prizes (Premiação), and social sharing section (Publique sua Experiência)
+2. Dashboard - Individual player performance analytics with race history
+3. Ranking - Global leaderboard of top performers
+4. Equipe (Team) - Team member information
+5. RaceFinished - Post-race results with QR codes for dashboard access
+
+**Navigation Structure (Updated: Nov 2, 2025):**
+- Primary CTA: "⭐ VOTE NO NEXT!" - Gradient button (primary to accent) with star emoji, larger size, and hover scale animation
+- Core navigation: Dashboard → Ranking → Equipe
+- Removed standalone routes: /premiacao and /publique (content now on Home page)
 
 **State Management Approach:**
 - React Query handles all server state with custom query functions
