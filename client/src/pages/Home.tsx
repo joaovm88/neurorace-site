@@ -4,7 +4,7 @@ import { HashtagSection } from "@/components/HashtagSection";
 import { QuoteCarousel } from "@/components/QuoteCarousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Zap, Trophy } from "lucide-react";
+import { Brain, Zap, Trophy, Gift, Star, Camera, MessageSquare, Share2, Instagram, Twitter, Facebook } from "lucide-react";
 import mascoteVencedor from "@assets/Gemini_Generated_Image_a20m34a20m34a20m_1762029850292.png";
 import mascoteCorrendo from "@assets/mascote 1_1762029850292.png";
 
@@ -118,6 +118,196 @@ export default function Home() {
 
         <div className="mb-16">
           <QuoteCarousel />
+        </div>
+
+        <div className="mb-16" id="premiacao">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            <span className="text-primary">Compete</span> e <span style={{color: 'hsl(45 100% 52%)'}}>Vença</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card className="text-center hover-elevate" data-testid="card-first-place">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Trophy className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <CardTitle className="text-2xl">1º Lugar</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold mb-2" style={{color: 'hsl(45 100% 52%)'}}>Prêmio Top</p>
+                <p className="text-muted-foreground">
+                  Maior índice de concentração e melhor performance geral
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover-elevate" data-testid="card-second-place">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Star className="w-8 h-8 text-accent" />
+                  </div>
+                </div>
+                <CardTitle className="text-2xl">2º Lugar</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold text-accent mb-2">Destaque</p>
+                <p className="text-muted-foreground">
+                  Excelente desempenho de foco e consistência
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover-elevate" data-testid="card-third-place">
+              <CardHeader>
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Gift className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <CardTitle className="text-2xl">3º Lugar</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold text-primary mb-2">Honra</p>
+                <p className="text-muted-foreground">
+                  Ótimo controle mental e resiliência
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card data-testid="card-how-to-win">
+            <CardHeader>
+              <CardTitle className="text-2xl">Como Vencer</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-lg mb-2 text-primary">1. Mantenha o Foco</h3>
+                <p className="text-muted-foreground">
+                  Quanto maior sua concentração, melhor será seu desempenho. O sensor NeuroSky lê suas ondas cerebrais em tempo real.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2 text-accent">2. Seja Consistente</h3>
+                <p className="text-muted-foreground">
+                  A premiação leva em conta não apenas picos de foco, mas a capacidade de manter a concentração ao longo da corrida.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2" style={{color: 'hsl(45 100% 52%)'}}>3. Domine sua Mente</h3>
+                <p className="text-muted-foreground">
+                  Em um mundo de distrações, o foco é o seu superpoder. A diferença entre o bom e o lendário é um segundo a mais de foco.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mb-16" id="publique">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            <span className="text-primary">Compartilhe</span> sua <span style={{color: 'hsl(45 100% 52%)'}}>Conquista</span>
+          </h2>
+
+          <div className="space-y-6">
+            <Card data-testid="card-share-tips">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Camera className="w-5 h-5 text-primary" />
+                  Dicas para Compartilhar
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h3 className="font-semibold mb-2 text-primary">📸 Tire Fotos</h3>
+                  <p className="text-muted-foreground">
+                    Registre o momento usando o sensor NeuroSky, mostre seu dashboard pessoal 
+                    com suas métricas de concentração e performance.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2 text-accent">💭 Conte sua História</h3>
+                  <p className="text-muted-foreground">
+                    Descreva como foi controlar com sua mente, quais foram seus maiores desafios 
+                    e o que você aprendeu sobre seu foco e concentração.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2" style={{color: 'hsl(45 100% 52%)'}}>🏆 Mostre seus Resultados</h3>
+                  <p className="text-muted-foreground">
+                    Compartilhe seu TZF (Taxa de Zona de Foco), índices de consistência e resiliência. 
+                    Inspire outros a testarem sua concentração!
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card data-testid="card-hashtags">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MessageSquare className="w-5 h-5 text-accent" />
+                    Use Nossas Hashtags
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">#NeuroRace</span>
+                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">#MindControl</span>
+                    <span className="px-3 py-1 bg-primary/10 rounded-full text-sm font-medium" style={{color: 'hsl(45 100% 52%)'}}>
+                      #FocoÉPoder
+                    </span>
+                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">#NEXTFIAP</span>
+                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">#Neurofeedback</span>
+                    <span className="px-3 py-1 bg-accent/10 rounded-full text-sm font-medium" style={{color: 'hsl(45 100% 52%)'}}>
+                      #ConcentraçãoTotal
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card data-testid="card-social-media">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Share2 className="w-5 h-5" style={{color: 'hsl(45 100% 52%)'}} />
+                    Compartilhe nas Redes
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-3 gap-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
+                      data-testid="button-share-instagram"
+                    >
+                      <Instagram className="w-5 h-5" />
+                      <span className="text-xs">Instagram</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
+                      data-testid="button-share-twitter"
+                    >
+                      <Twitter className="w-5 h-5" />
+                      <span className="text-xs">Twitter</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
+                      data-testid="button-share-facebook"
+                    >
+                      <Facebook className="w-5 h-5" />
+                      <span className="text-xs">Facebook</span>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
 
         <Card className="mb-12 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10" data-testid="card-next-info">

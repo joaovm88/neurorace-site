@@ -7,12 +7,9 @@ export function Navigation() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/premiacao", label: "Premiação" },
-    { href: "/publique", label: "Publique sua Experiência" },
-    { href: "/", label: "O Projeto" },
+    { href: "/dashboard", label: "Dashboard" },
     { href: "/ranking", label: "Ranking" },
     { href: "/equipe", label: "Equipe" },
-    { href: "/dashboard", label: "Dashboard" },
   ];
 
   return (
@@ -28,12 +25,12 @@ export function Navigation() {
           </div>
         </Link>
 
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-4 lg:gap-6">
           <li>
             <Button
               asChild
-              className="bg-primary hover:opacity-90 text-primary-foreground font-bold"
-              size="default"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              size="lg"
             >
               <a
                 href="https://www.fiap.com.br/next/"
@@ -41,7 +38,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 data-testid="link-vote-primary"
               >
-                VOTE NO NEXT!
+                ⭐ VOTE NO NEXT!
               </a>
             </Button>
           </li>

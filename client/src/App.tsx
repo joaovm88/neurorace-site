@@ -9,18 +9,14 @@ import Ranking from "@/pages/Ranking";
 import Equipe from "@/pages/Equipe";
 import Dashboard from "@/pages/Dashboard";
 import RaceFinished from "@/pages/RaceFinished";
-import Premiacao from "@/pages/Premiacao";
-import Publique from "@/pages/Publique";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/premiacao" component={Premiacao} />
-      <Route path="/publique" component={Publique} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="/ranking" component={Ranking} />
       <Route path="/equipe" component={Equipe} />
-      <Route path="/dashboard" component={Dashboard} />
       <Route path="/race-finished" component={RaceFinished} />
       <Route component={NotFound} />
     </Switch>

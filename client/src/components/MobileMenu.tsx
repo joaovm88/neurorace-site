@@ -28,8 +28,8 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
             <li>
               <Button
                 asChild
-                className="w-full bg-primary hover:opacity-90 text-primary-foreground font-bold"
-                size="default"
+                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-bold shadow-lg"
+                size="lg"
               >
                 <a
                   href="https://www.fiap.com.br/next/"
@@ -38,7 +38,7 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
                   onClick={() => setIsOpen(false)}
                   data-testid="mobile-link-vote-primary"
                 >
-                  VOTE NO NEXT!
+                  ⭐ VOTE NO NEXT!
                 </a>
               </Button>
             </li>
