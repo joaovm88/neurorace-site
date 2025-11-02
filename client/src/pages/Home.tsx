@@ -4,8 +4,8 @@ import { QuoteCarousel } from "@/components/QuoteCarousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Zap, Trophy, Gift, Star, Camera, MessageSquare, Share2, Instagram, Twitter, Facebook } from "lucide-react";
-import mascoteVencedor from "@assets/Gemini_Generated_Image_t7yxl6t7yxl6t7yx (1)_1762113641705.png";
-import mascoteCorrendo from "@assets/Gemini_Generated_Image_u9a4qmu9a4qmu9a4_1762113641704.png";
+import mascoteVencedor from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.19.54_3029b0b9_1762114903401.jpg";
+import mascoteCorrendo from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.16.15_351319a1_1762114903401.jpg";
 
 export default function Home() {
   return (

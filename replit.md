@@ -55,13 +55,12 @@ Preferred communication style: Simple, everyday language.
    - Removed non-compliant hover effects (hover:scale-105, hover:opacity-90) from all buttons
 
 8. **Mascot Image Update (November 2, 2025):**
-   - Replaced all mascot images with new brain character illustrations
-   - Navigation logo: Brain with sunglasses and crossed arms (imagem 1)
-   - Hero section: Brain holding trophy, celebrating victory (imagem 2)
-   - Final section: Brain running with determined expression (imagem 3)
-   - New images come with built-in dark backgrounds matching site theme
-   - Applied CSS mix-blend-mode: screen to all mascot images for seamless integration with page background
-   - Blend mode makes dark backgrounds fade into page background, highlighting the brain characters
+   - Replaced all mascot images with new brain character stickers with transparent backgrounds
+   - Navigation logo: Brain with sunglasses and crossed arms
+   - Hero section: Brain holding trophy, celebrating victory
+   - Final section: Brain running with determined expression
+   - Images have true transparent/black backgrounds that blend seamlessly with site theme (#0a192f)
+   - No CSS blend modes needed - natural transparency integration
 
 ## System Architecture
 

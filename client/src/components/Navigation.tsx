@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Star } from "lucide-react";
-import mascoteLogo from "@assets/Gemini_Generated_Image_t7yxl6t7yxl6t7yx_1762113641706.png";
+import mascoteLogo from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.16.27_6e9798b3_1762114903400.jpg";
 
 export function Navigation() {
   const [location] = useLocation();
