@@ -45,6 +45,14 @@ Preferred communication style: Simple, everyday language.
    - Updated all image backgrounds to match site color (#0a192f)
    - Updated final section "Pronto para testar sua concentração" background to #0a192f
 
+7. **Image Background Consistency (November 2, 2025):**
+   - Applied #0a192f background to all mascot images throughout the site
+   - Navigation logo mascot now has dark background
+   - Hero section mascot has dark background
+   - Final section running mascot has dark background
+   - All VOTE NO NEXT buttons now use Star icon from lucide-react instead of emoji
+   - Removed non-compliant hover effects (hover:scale-105, hover:opacity-90) from all buttons
+
 ## System Architecture
 
 ### Frontend Architecture
