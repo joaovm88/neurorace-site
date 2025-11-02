@@ -4,8 +4,8 @@ import { QuoteCarousel } from "@/components/QuoteCarousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Zap, Trophy, Gift, Star, Camera, MessageSquare, Share2, Instagram, Twitter, Facebook } from "lucide-react";
-import mascoteVencedor from "@assets/Gemini_Generated_Image_a20m34a20m34a20m_1762029850292.png";
-import mascoteCorrendo from "@assets/mascote 1_1762029850292.png";
+import mascoteVencedor from "@assets/imagem 2_1762112448696.png";
+import mascoteCorrendo from "@assets/imagem 3_1762112448697.png";
 
 export default function Home() {
   return (
@@ -55,7 +55,6 @@ export default function Home() {
                 src={mascoteVencedor} 
                 alt="Mascote NeuroRace" 
                 className="w-64 md:w-80 animate-pulse"
-                style={{backgroundColor: '#0a192f'}}
               />
             </div>
           </div>
@@ -286,7 +285,6 @@ export default function Home() {
             src={mascoteCorrendo} 
             alt="Mascote Correndo" 
             className="w-48 mx-auto mb-6"
-            style={{backgroundColor: '#0a192f'}}
           />
           <h3 className="text-2xl font-bold mb-4">
             Pronto para testar sua concentração?

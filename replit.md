@@ -53,6 +53,13 @@ Preferred communication style: Simple, everyday language.
    - All VOTE NO NEXT buttons now use Star icon from lucide-react instead of emoji
    - Removed non-compliant hover effects (hover:scale-105, hover:opacity-90) from all buttons
 
+8. **Mascot Image Update (November 2, 2025):**
+   - Replaced all mascot images with new brain character illustrations
+   - Navigation logo: Brain with sunglasses and crossed arms (imagem 1)
+   - Hero section: Brain holding trophy, celebrating victory (imagem 2)
+   - Final section: Brain running with determined expression (imagem 3)
+   - New images come with built-in dark backgrounds matching site theme
+
 ## System Architecture
 
 ### Frontend Architecture
