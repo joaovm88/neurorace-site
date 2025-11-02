@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
             <li>
               <Button
                 asChild
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-bold shadow-lg"
+                className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold"
                 size="lg"
               >
                 <a
@@ -37,8 +37,10 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                   data-testid="mobile-link-vote-primary"
+                  className="flex items-center justify-center gap-2"
                 >
-                  ⭐ VOTE NO NEXT!
+                  <Star className="w-4 h-4 fill-current" />
+                  VOTE NO NEXT!
                 </a>
               </Button>
             </li>

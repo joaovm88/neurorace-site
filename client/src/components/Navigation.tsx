@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
+import { Star } from "lucide-react";
 import mascoteLogo from "@assets/Gemini_Generated_Image_a20m34a20m34a20m (1)_1762029850291.png";
 
 export function Navigation() {
@@ -17,7 +18,7 @@ export function Navigation() {
       <div className="flex h-20 items-center justify-between px-4 md:px-12">
         <Link href="/">
           <div className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer" data-testid="link-home">
-            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" />
+            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" style={{backgroundColor: '#0a192f'}} />
             <span className="text-xl md:text-2xl font-bold">
               <span className="text-primary">NEURO</span>
               <span style={{color: 'hsl(45 100% 52%)'}}>RACE</span>
@@ -29,7 +30,7 @@ export function Navigation() {
           <li>
             <Button
               asChild
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground font-bold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold text-base"
               size="lg"
             >
               <a
@@ -37,8 +38,10 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="link-vote-primary"
+                className="flex items-center gap-2"
               >
-                ⭐ VOTE NO NEXT!
+                <Star className="w-4 h-4 fill-current" />
+                VOTE NO NEXT!
               </a>
             </Button>
           </li>
