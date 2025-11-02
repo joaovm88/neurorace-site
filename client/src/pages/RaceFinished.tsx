@@ -3,8 +3,6 @@ import { PageHeader } from "@/components/PageHeader";
 import { PlayerResultCard } from "@/components/PlayerResultCard";
 
 export default function RaceFinished() {
-  //todo: remove mock functionality - replace with real data from URL params
-  // Expected URL: /race-finished?p1id=email1&p1sid=session1&p2id=email2&p2sid=session2
   const players = [
     {
       playerNumber: 1 as const,

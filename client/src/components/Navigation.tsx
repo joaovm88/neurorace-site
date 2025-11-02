@@ -21,7 +21,7 @@ export function Navigation() {
             <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" style={{mixBlendMode: 'screen'}} />
             <span className="text-xl md:text-2xl font-bold">
               <span className="text-primary">NEURO</span>
-              <span style={{color: 'hsl(45 100% 52%)'}}>RACE</span>
+              <span className="text-brand-yellow">RACE</span>
             </span>
           </div>
         </Link>

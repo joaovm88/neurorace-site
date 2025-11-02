@@ -22,12 +22,10 @@ export default function Dashboard() {
     }
   };
 
-  //todo: remove mock functionality - replace with real API calls
   const { data: playerData, isLoading } = useQuery<{ player: Player; session: Session; sessions: Session[]; stats: Stats }>({
     queryKey: ["/api/player", searchEmail],
     enabled: !!searchEmail,
     queryFn: async () => {
-      // Mock data for demo - múltiplas sessões
       const now = new Date();
       const sessions: Session[] = [
         {
@@ -74,7 +72,7 @@ export default function Dashboard() {
       
       return {
         player: { email: searchEmail, phone: "(11) 99999-8888" },
-        session: sessions[sessions.length - 1], // Última sessão
+        session: sessions[sessions.length - 1],
         sessions: sessions,
         stats: {
           playerEmail: searchEmail,

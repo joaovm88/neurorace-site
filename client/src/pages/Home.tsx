@@ -1,9 +1,9 @@
 import { Navigation } from "@/components/Navigation";
-import { InfoCard } from "@/components/InfoCard";
 import { QuoteCarousel } from "@/components/QuoteCarousel";
+import { ShareSection } from "@/components/ShareSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Zap, Trophy, Gift, Star, Camera, MessageSquare, Share2, Instagram, Twitter, Facebook } from "lucide-react";
+import { Brain, Zap, Trophy, Star } from "lucide-react";
 import mascoteVencedor from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.19.54_3029b0b9_1762114903401.jpg";
 import mascoteCorrendo from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.16.15_351319a1_1762114903401.jpg";
 
@@ -43,7 +43,7 @@ export default function Home() {
               <h1 className="text-4xl md:text-6xl font-bold mb-6" data-testid="text-hero-title">
                 <span className="text-primary">Onde Sua Mente</span>
                 <br />
-                <span className="text-foreground">é o</span> <span style={{color: 'hsl(45 100% 52%)'}}>Controle</span>
+                <span className="text-foreground">é o</span> <span className="text-brand-yellow">Controle</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
                 Você já imaginou controlar um jogo apenas com o poder do seu foco? 
@@ -65,7 +65,7 @@ export default function Home() {
       <main className="container max-w-6xl mx-auto px-4 md:px-6 py-12">
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12">
-            <span className="text-primary">O Conceito</span> do <span style={{color: 'hsl(45 100% 52%)'}}>NeuroRace</span>
+            <span className="text-primary">O Conceito</span> do <span className="text-brand-yellow">NeuroRace</span>
           </h2>
           
           <Card className="mb-8 bg-gradient-to-br from-card via-card to-primary/5">
@@ -76,7 +76,7 @@ export default function Home() {
                 Quanto maior sua concentração, melhor seu desempenho.
               </p>
               <p className="text-lg md:text-xl text-center leading-relaxed mt-6">
-                E é aí que entra a <span className="font-semibold" style={{color: 'hsl(45 100% 52%)'}}>gamificação</span>: 
+                E é aí que entra a <span className="font-semibold text-brand-yellow">gamificação</span>: 
                 O NeuroRace transforma seu foco em uma competição divertida e viciante. 
                 Você compete contra outros jogadores, acompanha seu progresso em dashboards instantâneos 
                 e é recompensado por manter a mente afiada.
@@ -121,7 +121,7 @@ export default function Home() {
               <CardHeader>
                 <div className="flex justify-center mb-4">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Trophy className="w-8 h-8" style={{color: 'hsl(45 100% 52%)'}} />
+                    <Trophy className="w-8 h-8 text-brand-yellow" />
                   </div>
                 </div>
                 <CardTitle>Premiação</CardTitle>
@@ -141,107 +141,10 @@ export default function Home() {
 
         <div className="mb-16" id="publique">
           <h2 className="text-3xl font-bold text-center mb-8">
-            <span className="text-primary">Compartilhe</span> sua <span style={{color: 'hsl(45 100% 52%)'}}>Conquista</span>
+            <span className="text-primary">Compartilhe</span> sua <span className="text-brand-yellow">Conquista</span>
           </h2>
 
-          <div className="space-y-6">
-            <Card data-testid="card-share-tips">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Camera className="w-5 h-5 text-primary" />
-                  Dicas para Compartilhar
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2 text-primary">📸 Tire Fotos</h3>
-                  <p className="text-muted-foreground">
-                    Registre o momento usando o sensor NeuroSky, mostre seu dashboard pessoal 
-                    com suas métricas de concentração e performance.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2 text-accent">💭 Conte sua História</h3>
-                  <p className="text-muted-foreground">
-                    Descreva como foi controlar com sua mente, quais foram seus maiores desafios 
-                    e o que você aprendeu sobre seu foco e concentração.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2" style={{color: 'hsl(45 100% 52%)'}}>🏆 Mostre seus Resultados</h3>
-                  <p className="text-muted-foreground">
-                    Compartilhe seu TZF (Taxa de Zona de Foco), índices de consistência e resiliência. 
-                    Inspire outros a testarem sua concentração!
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card data-testid="card-hashtags">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MessageSquare className="w-5 h-5 text-accent" />
-                    Use Nossas Hashtags
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">#NeuroRace</span>
-                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">#MindControl</span>
-                    <span className="px-3 py-1 bg-primary/10 rounded-full text-sm font-medium" style={{color: 'hsl(45 100% 52%)'}}>
-                      #FocoÉPoder
-                    </span>
-                    <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">#NEXTFIAP</span>
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">#Neurofeedback</span>
-                    <span className="px-3 py-1 bg-accent/10 rounded-full text-sm font-medium" style={{color: 'hsl(45 100% 52%)'}}>
-                      #ConcentraçãoTotal
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card data-testid="card-social-media">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Share2 className="w-5 h-5" style={{color: 'hsl(45 100% 52%)'}} />
-                    Compartilhe nas Redes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-3 gap-3">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
-                      data-testid="button-share-instagram"
-                    >
-                      <Instagram className="w-5 h-5" />
-                      <span className="text-xs">Instagram</span>
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
-                      data-testid="button-share-twitter"
-                    >
-                      <Twitter className="w-5 h-5" />
-                      <span className="text-xs">Twitter</span>
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="flex flex-col items-center gap-1 h-auto py-3 hover-elevate"
-                      data-testid="button-share-facebook"
-                    >
-                      <Facebook className="w-5 h-5" />
-                      <span className="text-xs">Facebook</span>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          <ShareSection />
         </div>
 
         <Card className="mb-12 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10" data-testid="card-next-info">
@@ -258,8 +161,8 @@ export default function Home() {
             </p>
             <p className="text-center text-lg">
               <span className="font-semibold text-primary">NeuroRace</span> é um dos projetos 
-              destaque deste ano, combinando <span className="font-semibold text-accent">neurociência</span>, 
-              <span className="font-semibold" style={{color: 'hsl(45 100% 52%)'}}> tecnologia</span> e 
+              destaque deste ano, combinando <span className="font-semibold text-accent">neurociência</span>,
+              <span className="font-semibold text-brand-yellow"> tecnologia</span> e 
               <span className="font-semibold text-primary"> gamificação</span> em uma experiência única!
             </p>
             <div className="flex justify-center mt-6">

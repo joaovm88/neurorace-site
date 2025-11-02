@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useRef } from "react";
-// @ts-ignore - QRCode types may not be available
 import QRCode from "qrcode";
 
 interface PlayerResultCardProps {

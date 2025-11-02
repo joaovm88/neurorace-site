@@ -81,6 +81,8 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        'brand-yellow': 'hsl(45 100% 52%)',
+        'brand-blue': '#0a192f',
       },
       fontFamily: {
         sans: ["Poppins", "var(--font-sans)"],

@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// @ts-ignore - react-chartjs-2 types may not be available
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,9 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
-  // @ts-ignore
   ChartOptions,
-  // @ts-ignore
 } from "chart.js";
 
 ChartJS.register(

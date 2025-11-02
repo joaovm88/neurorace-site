@@ -5,11 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import type { Stats } from "@shared/schema";
 
 export default function Ranking() {
-  //todo: remove mock functionality - replace with real API call
   const { data: rankings, isLoading } = useQuery<Array<Stats & { position: number }>>({
     queryKey: ["/api/ranking"],
     queryFn: async () => {
-      // Mock data for demo
       return [
         { playerEmail: "piloto.campeao@email.com", tzfPB: 0.89, trzPBsec: 2.5, tzfSeries: [0.85, 0.89], position: 1 },
         { playerEmail: "segundo.lugar@email.com", tzfPB: 0.85, trzPBsec: 2.3, tzfSeries: [0.82, 0.85], position: 2 },

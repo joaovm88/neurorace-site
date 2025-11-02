@@ -1,6 +1,12 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Autoplay from "embla-carousel-autoplay";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const quotes = [
   "Sua mente no controle. O resto é só o jogo.",
@@ -22,68 +28,32 @@ const quotes = [
 ];
 
 export function QuoteCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % quotes.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + quotes.length) % quotes.length);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % quotes.length);
-  };
-
   return (
-    <div className="relative bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-lg p-8 md:p-12" data-testid="quote-carousel">
-      <div className="flex items-center justify-between gap-4">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={goToPrevious}
-          className="flex-shrink-0"
-          data-testid="button-prev-quote"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </Button>
-
-        <div className="flex-1 text-center min-h-[80px] flex items-center justify-center">
-          <p className="text-lg md:text-2xl font-medium text-foreground transition-all duration-500" data-testid="text-current-quote">
-            "{quotes[currentIndex]}"
-          </p>
-        </div>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={goToNext}
-          className="flex-shrink-0"
-          data-testid="button-next-quote"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </Button>
-      </div>
-
-      <div className="flex justify-center gap-2 mt-6">
-        {quotes.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex 
-                ? "bg-primary w-8" 
-                : "bg-muted-foreground/30"
-            }`}
-            data-testid={`dot-${index}`}
-          />
+    <Carousel
+      opts={{
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 5000,
+        }),
+      ]}
+      className="w-full"
+      data-testid="quote-carousel"
+    >
+      <CarouselContent>
+        {quotes.map((quote, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <div className="bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-lg p-8 md:p-12 flex items-center justify-center min-h-[120px]">
+                <p className="text-lg md:text-2xl font-medium text-center text-foreground" data-testid={`quote-${index}`}>"{quote}"</p>
+              </div>
+            </div>
+          </CarouselItem>
         ))}
-      </div>
-    </div>
+      </CarouselContent>
+      <CarouselPrevious className="hidden md:flex" data-testid="button-prev-quote" />
+      <CarouselNext className="hidden md:flex" data-testid="button-next-quote" />
+    </Carousel>
   );
 }

@@ -16,7 +16,7 @@ export default function Premiacao() {
         <div className="space-y-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              <span className="text-primary">Compete</span> e <span style={{color: 'hsl(45 100% 52%)'}}>Vença</span>
+              <span className="text-primary">Compete</span> e <span className="text-brand-yellow">Vença</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               O NeuroRace transforma seu foco em uma competição divertida e viciante. 
@@ -35,7 +35,7 @@ export default function Premiacao() {
                 <CardTitle className="text-2xl">1º Lugar</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-3xl font-bold mb-2" style={{color: 'hsl(45 100% 52%)'}}>Prêmio Top</p>
+                <p className="text-3xl font-bold mb-2 text-brand-yellow">Prêmio Top</p>
                 <p className="text-muted-foreground">
                   Maior índice de concentração e melhor performance geral
                 </p>
@@ -95,7 +95,7 @@ export default function Premiacao() {
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-lg mb-2" style={{color: 'hsl(45 100% 52%)'}}>3. Domine sua Mente</h3>
+                <h3 className="font-semibold text-lg mb-2 text-brand-yellow">3. Domine sua Mente</h3>
                 <p className="text-muted-foreground">
                   Em um mundo de distrações, o foco é o seu superpoder. A diferença entre o bom e o lendário é um segundo a mais de foco.
                 </p>
