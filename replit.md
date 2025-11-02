@@ -38,6 +38,13 @@ Preferred communication style: Simple, everyday language.
    - Site now loads in dark mode by default
    - Applied `class="dark"` to HTML element for consistent dark theme experience
 
+6. **Home Page Restructuring (November 2, 2025):**
+   - Added VOTE NO NEXT button in hero section above main title with Star icon
+   - Removed "Compete e Vença" (Premiação) section with prize cards
+   - Removed duplicate HashtagSection component at bottom
+   - Updated all image backgrounds to match site color (#0a192f)
+   - Updated final section "Pronto para testar sua concentração" background to #0a192f
+
 ## System Architecture
 
 ### Frontend Architecture
