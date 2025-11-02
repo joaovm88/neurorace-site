@@ -30,6 +30,7 @@ Preferred communication style: Simple, everyday language.
 
 4. **Dashboard Enhancements:**
    - Added "Histórico de Corridas" (Race History) feature
+   - Race History positioned as FIRST section after email search (top priority on Dashboard)
    - Displays multiple race sessions with timestamps
    - Shows badges for "Mais Recente" (most recent) and "Recorde Pessoal" (personal record)
    - Each session displays: Date/Time, TZF, Consistency, Resilience, LFO metrics

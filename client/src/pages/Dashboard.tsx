@@ -124,73 +124,6 @@ export default function Dashboard() {
 
         {playerData && (
           <div className="space-y-6 px-4">
-            <Card className="border-l-4 border-l-primary">
-              <CardContent className="pt-6">
-                <p className="text-sm md:text-base text-muted-foreground">
-                  <strong className="text-foreground">Curiosidade:</strong> O cérebro é como um músculo. 
-                  Quanto mais você treina seu foco, mais forte e resiliente ele fica!
-                </p>
-              </CardContent>
-            </Card>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              <MetricCard
-                icon="🎯"
-                title="Foco (TZF)"
-                value={`${(playerData.session.tzf * 100).toFixed(1)}%`}
-                tooltip="Tempo em Zona de Foco: Mede o percentual da corrida que você passou acima do seu limiar de foco."
-              />
-              <MetricCard
-                icon="⚖️"
-                title="Consistência (CVF)"
-                value={playerData.session.cvfLabel === "estavel" ? "Estável" : "Oscilante"}
-                valueColor={playerData.session.cvfLabel === "estavel" ? "text-green-500" : "text-yellow-500"}
-                tooltip="Consistência do Foco: Indica se seu foco foi 'Estável' ou se 'Oscilou' muito durante a prova."
-              />
-              <MetricCard
-                icon="🧠"
-                title="Resiliência (IRC)"
-                value={playerData.session.ircLabel === "alto" ? "Alto" : playerData.session.ircLabel === "medio" ? "Médio" : "Baixo"}
-                valueColor={playerData.session.ircLabel === "alto" ? "text-blue-500" : "text-muted-foreground"}
-                tooltip="Índice de Resiliência Cognitiva: Calcula sua capacidade de se recuperar mentalmente de eventos, como colisões."
-              />
-              <MetricCard
-                icon="⚡"
-                title="LFO Médio"
-                value={playerData.session.lfoMean?.toFixed(1) || "--"}
-                tooltip="Low Frequency Oscillations: Métrica de recuperação neural após eventos estressantes."
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <span>🚀</span>
-                    <span>Meus Recordes (PBs)</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">⏱️ Melhor Foco (TZF)</span>
-                    <span className="text-lg font-bold text-[#38bdf8]">
-                      {(playerData.stats.tzfPB! * 100).toFixed(1)}%
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">⚡ Melhor Recuperação (TRZ)</span>
-                    <span className="text-lg font-bold text-[#38bdf8]">
-                      {playerData.stats.trzPBsec?.toFixed(1)}s
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {playerData.stats.tzfSeries && playerData.stats.tzfSeries.length > 0 && (
-              <PerformanceChart tzfSeries={playerData.stats.tzfSeries} />
-            )}
-
             <Card data-testid="card-race-history">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -274,6 +207,73 @@ export default function Dashboard() {
                 </div>
               </CardContent>
             </Card>
+
+            <Card className="border-l-4 border-l-primary">
+              <CardContent className="pt-6">
+                <p className="text-sm md:text-base text-muted-foreground">
+                  <strong className="text-foreground">Curiosidade:</strong> O cérebro é como um músculo. 
+                  Quanto mais você treina seu foco, mais forte e resiliente ele fica!
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              <MetricCard
+                icon="🎯"
+                title="Foco (TZF)"
+                value={`${(playerData.session.tzf * 100).toFixed(1)}%`}
+                tooltip="Tempo em Zona de Foco: Mede o percentual da corrida que você passou acima do seu limiar de foco."
+              />
+              <MetricCard
+                icon="⚖️"
+                title="Consistência (CVF)"
+                value={playerData.session.cvfLabel === "estavel" ? "Estável" : "Oscilante"}
+                valueColor={playerData.session.cvfLabel === "estavel" ? "text-green-500" : "text-yellow-500"}
+                tooltip="Consistência do Foco: Indica se seu foco foi 'Estável' ou se 'Oscilou' muito durante a prova."
+              />
+              <MetricCard
+                icon="🧠"
+                title="Resiliência (IRC)"
+                value={playerData.session.ircLabel === "alto" ? "Alto" : playerData.session.ircLabel === "medio" ? "Médio" : "Baixo"}
+                valueColor={playerData.session.ircLabel === "alto" ? "text-blue-500" : "text-muted-foreground"}
+                tooltip="Índice de Resiliência Cognitiva: Calcula sua capacidade de se recuperar mentalmente de eventos, como colisões."
+              />
+              <MetricCard
+                icon="⚡"
+                title="LFO Médio"
+                value={playerData.session.lfoMean?.toFixed(1) || "--"}
+                tooltip="Low Frequency Oscillations: Métrica de recuperação neural após eventos estressantes."
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <span>🚀</span>
+                    <span>Meus Recordes (PBs)</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">⏱️ Melhor Foco (TZF)</span>
+                    <span className="text-lg font-bold text-[#38bdf8]">
+                      {(playerData.stats.tzfPB! * 100).toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">⚡ Melhor Recuperação (TRZ)</span>
+                    <span className="text-lg font-bold text-[#38bdf8]">
+                      {playerData.stats.trzPBsec?.toFixed(1)}s
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {playerData.stats.tzfSeries && playerData.stats.tzfSeries.length > 0 && (
+              <PerformanceChart tzfSeries={playerData.stats.tzfSeries} />
+            )}
           </div>
         )}
       </main>
