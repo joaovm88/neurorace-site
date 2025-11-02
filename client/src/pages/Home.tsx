@@ -55,6 +55,7 @@ export default function Home() {
                 src={mascoteVencedor} 
                 alt="Mascote NeuroRace" 
                 className="w-64 md:w-80 animate-pulse"
+                style={{mixBlendMode: 'screen'}}
               />
             </div>
           </div>
@@ -285,6 +286,7 @@ export default function Home() {
             src={mascoteCorrendo} 
             alt="Mascote Correndo" 
             className="w-48 mx-auto mb-6"
+            style={{mixBlendMode: 'screen'}}
           />
           <h3 className="text-2xl font-bold mb-4">
             Pronto para testar sua concentração?

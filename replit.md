@@ -60,7 +60,8 @@ Preferred communication style: Simple, everyday language.
    - Hero section: Brain holding trophy, celebrating victory
    - Final section: Brain running with determined expression
    - Images have true transparent/black backgrounds that blend seamlessly with site theme (#0a192f)
-   - No CSS blend modes needed - natural transparency integration
+   - Applied CSS mix-blend-mode: screen to enhance visual integration with page background
+   - Blend effect makes darker areas fade into background while highlighting the brain characters
 
 ## System Architecture
 
