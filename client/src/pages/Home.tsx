@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { InfoCard } from "@/components/InfoCard";
-import { HashtagSection } from "@/components/HashtagSection";
 import { QuoteCarousel } from "@/components/QuoteCarousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,6 +19,25 @@ export default function Home() {
         </div>
         
         <div className="container max-w-6xl mx-auto px-4 md:px-6 py-16 relative">
+          <div className="flex justify-center mb-8">
+            <Button 
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-primary to-accent text-white font-bold text-lg"
+              data-testid="button-vote-hero"
+            >
+              <a 
+                href="https://www.fiap.com.br/next/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Star className="w-5 h-5 fill-current" />
+                VOTE NO NEXT!
+              </a>
+            </Button>
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-bold mb-6" data-testid="text-hero-title">
@@ -37,6 +55,7 @@ export default function Home() {
                 src={mascoteVencedor} 
                 alt="Mascote NeuroRace" 
                 className="w-64 md:w-80 animate-pulse"
+                style={{backgroundColor: '#0a192f'}}
               />
             </div>
           </div>
@@ -118,91 +137,6 @@ export default function Home() {
 
         <div className="mb-16">
           <QuoteCarousel />
-        </div>
-
-        <div className="mb-16" id="premiacao">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            <span className="text-primary">Compete</span> e <span style={{color: 'hsl(45 100% 52%)'}}>Vença</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card className="text-center hover-elevate" data-testid="card-first-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Trophy className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">1º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold mb-2" style={{color: 'hsl(45 100% 52%)'}}>Prêmio Top</p>
-                <p className="text-muted-foreground">
-                  Maior índice de concentração e melhor performance geral
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-elevate" data-testid="card-second-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Star className="w-8 h-8 text-accent" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">2º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-accent mb-2">Destaque</p>
-                <p className="text-muted-foreground">
-                  Excelente desempenho de foco e consistência
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-elevate" data-testid="card-third-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Gift className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">3º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary mb-2">Honra</p>
-                <p className="text-muted-foreground">
-                  Ótimo controle mental e resiliência
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card data-testid="card-how-to-win">
-            <CardHeader>
-              <CardTitle className="text-2xl">Como Vencer</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <h3 className="font-semibold text-lg mb-2 text-primary">1. Mantenha o Foco</h3>
-                <p className="text-muted-foreground">
-                  Quanto maior sua concentração, melhor será seu desempenho. O sensor NeuroSky lê suas ondas cerebrais em tempo real.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2 text-accent">2. Seja Consistente</h3>
-                <p className="text-muted-foreground">
-                  A premiação leva em conta não apenas picos de foco, mas a capacidade de manter a concentração ao longo da corrida.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2" style={{color: 'hsl(45 100% 52%)'}}>3. Domine sua Mente</h3>
-                <p className="text-muted-foreground">
-                  Em um mundo de distrações, o foco é o seu superpoder. A diferença entre o bom e o lendário é um segundo a mais de foco.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
         </div>
 
         <div className="mb-16" id="publique">
@@ -346,14 +280,13 @@ export default function Home() {
             </div>
           </CardContent>
         </Card>
-
-        <HashtagSection />
         
-        <div className="mt-12 text-center p-8 bg-gradient-to-r from-card to-primary/5 rounded-lg">
+        <div className="mt-12 text-center p-8 rounded-lg" style={{backgroundColor: '#0a192f'}}>
           <img 
             src={mascoteCorrendo} 
             alt="Mascote Correndo" 
             className="w-48 mx-auto mb-6"
+            style={{backgroundColor: '#0a192f'}}
           />
           <h3 className="text-2xl font-bold mb-4">
             Pronto para testar sua concentração?
