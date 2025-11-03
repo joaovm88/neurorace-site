@@ -84,6 +84,15 @@ export default function Dashboard() {
     },
   });
 
+  const getIrcLabel = (label: string | undefined) => {
+    switch (label) {
+      case "alto": return "Alto";
+      case "medio": return "Médio";
+      case "baixo": return "Baixo";
+      default: return "N/A";
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -175,7 +184,7 @@ export default function Dashboard() {
                             <div className="text-center">
                               <p className="text-xs text-muted-foreground mb-1">Resiliência</p>
                               <p className={`text-sm font-semibold ${session.ircLabel === "alto" ? "text-blue-500" : "text-muted-foreground"}`}>
-                                {session.ircLabel === "alto" ? "Alto" : session.ircLabel === "medio" ? "Médio" : "Baixo"}
+                                {getIrcLabel(session.ircLabel)}
                               </p>
                             </div>
                             <div className="text-center">
@@ -232,7 +241,7 @@ export default function Dashboard() {
               <MetricCard
                 icon="🧠"
                 title="Resiliência (IRC)"
-                value={playerData.session.ircLabel === "alto" ? "Alto" : playerData.session.ircLabel === "medio" ? "Médio" : "Baixo"}
+                value={getIrcLabel(playerData.session.ircLabel)}
                 valueColor={playerData.session.ircLabel === "alto" ? "text-blue-500" : "text-muted-foreground"}
                 tooltip="Índice de Resiliência Cognitiva: Calcula sua capacidade de se recuperar mentalmente de eventos, como colisões."
               />

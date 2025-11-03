@@ -76,56 +76,6 @@ export default function Premiacao() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="text-center hover-elevate" data-testid="card-first-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Trophy className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">1º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold mb-2 text-brand-yellow">Prêmio Top</p>
-                <p className="text-muted-foreground">
-                  Maior índice de concentração e melhor performance geral
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-elevate" data-testid="card-second-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Star className="w-8 h-8 text-accent" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">2º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-accent mb-2">Destaque</p>
-                <p className="text-muted-foreground">
-                  Excelente desempenho de foco e consistência
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover-elevate" data-testid="card-third-place">
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Gift className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <CardTitle className="text-2xl">3º Lugar</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-primary mb-2">Honra</p>
-                <p className="text-muted-foreground">
-                  Ótimo controle mental e resiliência
-                </p>
-              </CardContent>
-            </Card>
             {prizeData.map((prize) => (
               <Card key={prize.place} className="text-center hover-elevate" data-testid={prize.testId}>
                 <CardHeader>
