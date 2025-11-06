@@ -1,68 +1,113 @@
+// Arquivo: client/src/components/Navigation.tsx
+// Documentação: Barra de navegação "inteligente" (VERSÃO CORRIGIDA)
+
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
-import { Star } from "lucide-react";
-import mascoteLogo from "@assets/Imagem do WhatsApp de 2025-11-02 à(s) 17.16.27_6e9798b3_1762114903400.jpg";
+import { LogIn, LogOut, LayoutDashboard } from "lucide-react";
 
-export function Navigation() {
-  const [location] = useLocation();
+// 1. Importar o nosso hook de Autenticação e o Firebase
+import { useAuth } from "@/contexts/AuthContext";
+import { auth } from "@/firebaseConfig";
+import { signOut } from "firebase/auth";
 
-  const navItems = [
-    { href: "/dashboard", label: "Dashboard" },
+const navItems = [
+    { href: "/", label: "Home" },
     { href: "/ranking", label: "Ranking" },
     { href: "/equipe", label: "Equipe" },
-  ];
+    { href: "/premiacao", label: "Premiação" },
+];
 
-  return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="flex h-20 items-center justify-between px-4 md:px-12">
-        <Link href="/">
-          <div className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity cursor-pointer" data-testid="link-home">
-            <img src={mascoteLogo} alt="NeuroRace Mascote" className="w-10 h-10 md:w-12 md:h-12" style={{mixBlendMode: 'screen'}} />
-            <span className="text-xl md:text-2xl font-bold">
-              <span className="text-primary">NEURO</span>
-              <span className="text-brand-yellow">RACE</span>
-            </span>
-          </div>
-        </Link>
+export function Navigation() {
+    const [_, setLocation] = useLocation();
 
-        <ul className="hidden md:flex items-center gap-4 lg:gap-6">
-          <li>
-            <Button
-              asChild
-              className="bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold text-base"
-              size="lg"
-            >
-              <a
-                href="https://www.fiap.com.br/next/"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="link-vote-primary"
-                className="flex items-center gap-2"
-              >
-                <Star className="w-4 h-4 fill-current" />
-                VOTE NO NEXT!
-              </a>
-            </Button>
-          </li>
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                <span
-                  className={`text-sm font-medium transition-colors hover:text-foreground cursor-pointer ${
-                    location === item.href ? "text-foreground" : "text-muted-foreground"
-                  }`}
-                  data-testid={`link-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {item.label}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+    // 2. Usar o hook de autenticação
+    const { currentUser, loading } = useAuth();
 
-        <MobileMenu navItems={navItems} />
-      </div>
-    </nav>
-  );
+    // 3. Função de Logout
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            setLocation("/"); // Envia o utilizador para a Home após o logout
+        } catch (error) {
+            console.error("Erro ao fazer logout:", error);
+        }
+    };
+
+    return (
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container max-w-6xl mx-auto flex h-16 items-center justify-between px-6">
+                <div className="flex items-center">
+                    <Link href="/">
+                        <img
+                            src="/logo.png" // Certifique-se que tem um logo em /public/logo.png
+                            alt="NeuroRace Logo"
+                            className="h-8 w-auto cursor-pointer"
+                            onError={(e) => (e.currentTarget.src = "/favicon.ico")} // Fallback
+                        />
+                    </Link>
+                    <nav className="hidden md:flex md:items-center md:space-x-4 md:ml-8">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                            >
+                                {item.label}
+                            </Link>
+                        ))}
+                    </nav>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                    {/* 4. Lógica Condicional de Botões */}
+                    {!loading && (
+                        <>
+                            {currentUser ? (
+                                // --- ESTADO: LOGADO ---
+                                <div className="hidden md:flex md:items-center md:space-x-2">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => setLocation("/dashboard")}
+                                    >
+                                        <LayoutDashboard className="w-4 h-4 mr-2" />
+                                        Meu Dashboard
+                                    </Button>
+                                    <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        onClick={handleLogout}
+                                    >
+                                        <LogOut className="w-4 h-4 mr-2" />
+                                        Sair
+                                    </Button>
+                                </div>
+                            ) : (
+                                // --- ESTADO: NÃO LOGADO ---
+                                <Button
+                                    className="hidden md:flex"
+                                    size="sm"
+                                    onClick={() => setLocation("/login")}
+                                >
+                                    <LogIn className="w-4 h-4 mr-2" />
+                                    Entrar
+                                </Button>
+                            )}
+                        </>
+                    )}
+
+                    {/* 5. Menu Mobile (VERSÃO CORRIGIDA) */}
+                    {/* Passa as propriedades 'isLoggedIn' e 'onLogout' */}
+                    <div className="md:hidden">
+                        <MobileMenu
+                            navItems={navItems}
+                            isLoggedIn={!!currentUser}
+                            onLogout={handleLogout}
+                        />
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
 }

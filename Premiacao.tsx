@@ -83,7 +83,8 @@ export default function Premiacao() {
                     <div className={`w-16 h-16 rounded-full ${prize.iconBg} flex items-center justify-center`}>
                       <prize.Icon className={`w-8 h-8 ${prize.iconColor}`} />
                     </div>
-                  <CardTitle className="text-2xl">{prize.place}</CardTitle>
+                  </div>
+                  <CardTitle className="text-2xl mt-4">{prize.place}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className={`text-3xl font-bold mb-2 ${prize.titleColor}`}>{prize.title}</p>
