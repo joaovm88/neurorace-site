@@ -11,6 +11,7 @@ import {
   Legend,
   ChartOptions,
 } from "chart.js";
+import { Timestamp } from "firebase/firestore";
 
 ChartJS.register(
   CategoryScale,
@@ -22,17 +23,39 @@ ChartJS.register(
   Legend
 );
 
-interface PerformanceChartProps {
-  tzfSeries: number[];
+interface Session {
+  id: string;
+  playerUid?: string;
+  startedAt?: Timestamp;
+  tzf?: number;
+  cvfLabel?: string;
+  ircLabel?: string;
+  lfoMean?: number;
+  badges?: {
+    isTZFPB?: boolean;
+  };
 }
 
-export function PerformanceChart({ tzfSeries }: PerformanceChartProps) {
+interface PerformanceChartProps {
+  allSessions: Session[];
+}
+
+export function PerformanceChart({ allSessions }: PerformanceChartProps) {
+  const formatTimestamp = (timestamp?: Timestamp) => {
+    if (!timestamp) return "Data indisponível";
+    const date = timestamp.toDate();
+    return date.toLocaleString('pt-BR', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+    });
+  };
+
   const data = {
-    labels: tzfSeries.map((_, i) => `Sessão ${i + 1}`),
+    labels: allSessions.map((session) => formatTimestamp(session.startedAt)),
     datasets: [
       {
         label: "TZF (%)",
-        data: tzfSeries.map(v => v * 100),
+        data: allSessions.map(session => (session.tzf || 0) * 100),
         borderColor: "#00CED1",
         backgroundColor: "rgba(0, 206, 209, 0.1)",
         tension: 0.4,
@@ -60,7 +83,8 @@ export function PerformanceChart({ tzfSeries }: PerformanceChartProps) {
         padding: 12,
         displayColors: false,
         callbacks: {
-          label: (context: any) => `${context.parsed.y.toFixed(1)}%`,
+          title: (context: any) => formatTimestamp(allSessions[context[0].dataIndex].startedAt),
+          label: (context: any) => `TZF: ${context.parsed.y.toFixed(1)}%`,
         },
       },
     },

@@ -19,24 +19,7 @@ export default function Home() {
         </div>
         
         <div className="container max-w-6xl mx-auto px-4 md:px-6 py-16 relative">
-          <div className="flex justify-center mb-8">
-            <Button 
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-primary to-accent text-white font-bold text-lg"
-              data-testid="button-vote-hero"
-            >
-              <a 
-                href="https://www.fiap.com.br/next/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <Star className="w-5 h-5 fill-current" />
-                VOTE NO NEXT!
-              </a>
-            </Button>
-          </div>
+
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
@@ -54,7 +37,7 @@ export default function Home() {
               <img 
                 src={mascoteVencedor} 
                 alt="Mascote NeuroRace" 
-                className="w-64 md:w-80 animate-pulse"
+                className="w-64 md:w-80 animate-float"
                 style={{mixBlendMode: 'screen'}}
               />
             </div>

@@ -11,7 +11,12 @@ interface PlayerResultCardProps {
 
 export function PlayerResultCard({ playerNumber, playerEmail, tzfScore, dashboardUrl }: PlayerResultCardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const borderColor = playerNumber === 1 ? "border-t-[#38bdf8]" : "border-t-[#f43f82]";
+  const isPlayer1 = playerNumber === 1;
+  const scoreColor = isPlayer1 ? "text-[#38bdf8]" : "text-[#f43f82]";
+  const cardClassName = isPlayer1 
+    ? "bg-gradient-to-br from-cyan-50 via-white to-cyan-50 border-t-4 border-t-[#38bdf8]"
+    : "bg-gradient-to-br from-pink-50 via-white to-pink-50 border-t-4 border-t-[#f43f82]";
+
   const scorePercent = (tzfScore * 100).toFixed(1);
 
   useEffect(() => {
@@ -20,15 +25,15 @@ export function PlayerResultCard({ playerNumber, playerEmail, tzfScore, dashboar
         width: 200,
         margin: 1,
         color: {
-          dark: '#000000',
-          light: '#FFFFFF'
+          dark: isPlayer1 ? "#0891b2" : "#be185d", // Cor do QR Code
+          light: "#00000000" // Fundo transparente
         }
       });
     }
-  }, [dashboardUrl]);
+  }, [dashboardUrl, isPlayer1]);
 
   return (
-    <Card className={`border-t-4 ${borderColor} text-center`} data-testid={`card-player-${playerNumber}`}>
+    <Card className={`${cardClassName} text-center`} data-testid={`card-player-${playerNumber}`}>
       <CardHeader>
         <CardTitle className="text-2xl">Jogador {playerNumber}</CardTitle>
         <p className="text-sm text-muted-foreground" data-testid={`text-email-${playerNumber}`}>
@@ -38,11 +43,11 @@ export function PlayerResultCard({ playerNumber, playerEmail, tzfScore, dashboar
       <CardContent className="space-y-6">
         <div>
           <p className="text-sm text-muted-foreground mb-2">Score Final (TZF)</p>
-          <p className="text-4xl font-bold text-[#38bdf8]" data-testid={`text-score-${playerNumber}`}>
+          <p className={`text-4xl font-bold ${scoreColor}`} data-testid={`text-score-${playerNumber}`}>
             {scorePercent}%
           </p>
         </div>
-        <div className="bg-white p-4 rounded-lg inline-block">
+        <div className="p-4 rounded-lg inline-block bg-white/50">
           <canvas ref={canvasRef} data-testid={`qrcode-${playerNumber}`} />
         </div>
         <p className="text-xs text-muted-foreground">

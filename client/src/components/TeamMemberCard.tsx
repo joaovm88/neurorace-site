@@ -8,17 +8,21 @@ interface TeamMemberCardProps {
   role: string;
   linkedinUrl?: string;
   githubUrl?: string;
+  imageUrl?: string;
 }
 
-export function TeamMemberCard({ name, rm, role, linkedinUrl, githubUrl }: TeamMemberCardProps) {
+export function TeamMemberCard({ name, rm, role, linkedinUrl, githubUrl, imageUrl }: TeamMemberCardProps) {
   return (
-    <Card className="hover-elevate" data-testid={`card-team-${name.toLowerCase().replace(/\s+/g, '-')}`}>
+    <Card className="hover-elevate text-center" data-testid={`card-team-${name.toLowerCase().replace(/\s+/g, '-')}`}>
       <CardHeader>
+        <div className="flex justify-center">
+          <img src={imageUrl} alt={name} className="w-24 h-24 rounded-full mb-4" />
+        </div>
         <CardTitle className="text-xl">{name}</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground mb-4 min-h-[48px]">{role}</p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center">
           {linkedinUrl && (
             <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="sm" className="gap-2" data-testid="button-linkedin">

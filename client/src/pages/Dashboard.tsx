@@ -310,7 +310,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <Card>
+                        <Card className="bg-gradient-to-br from-card to-primary/5 border border-primary/20">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
                                     <span>🚀</span>
@@ -333,8 +333,8 @@ export default function Dashboard() {
                             </CardContent>
                         </Card>
 
-                        {stats?.tzfSeries && stats.tzfSeries.length > 0 && (
-                            <PerformanceChart tzfSeries={stats.tzfSeries} />
+                        {playerData?.allSessions && playerData.allSessions.length > 0 && (
+                            <PerformanceChart allSessions={playerData.allSessions} />
                         )}
                     </div>
                 </div>

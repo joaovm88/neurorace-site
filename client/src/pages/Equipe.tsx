@@ -9,6 +9,7 @@ export default function Equipe() {
       rm: "1",
       role: "Desenvolvedora | Front-end",
       linkedinUrl: "https://www.linkedin.com/in/ester-silvaa/",
+      imageUrl: "https://i.pravatar.cc/150?u=1",
     },
     {
       name: "João Victor Moreira",
@@ -16,24 +17,28 @@ export default function Equipe() {
       role: "Desenvolvedor | Front-end",
       linkedinUrl: "https://www.linkedin.com/in/jvmadv/",
       githubUrl: "https://github.com/tavares-fiap/NeuroRace",
+      imageUrl: "https://i.pravatar.cc/150?u=2",
     },
     {
       name: "Nikolas Rodrigues Moura dos Santos",
       rm: "3",
       role: "Desenvolvedor | Backend e Banco de Dados",
       linkedinUrl: "https://www.linkedin.com/in/nikolas-dos-santos/",
+      imageUrl: "https://i.pravatar.cc/150?u=3",
     },
     {
       name: "Pedro Henrique Pedrosa Tavares",
       rm: "4",
       role: "Desenvolvedor | Backend",
       linkedinUrl: "https://www.linkedin.com/in/phptavares/",
+      imageUrl: "https://i.pravatar.cc/150?u=4",
     },
     {
       name: "Thiago Jardim de Oliveira",
       rm: "5",
       role: "Desenvolvedor | Backend",
       linkedinUrl: "https://www.linkedin.com/in/thiago-jardim-de-oliveira-490164298/",
+      imageUrl: "https://i.pravatar.cc/150?u=5",
     },
   ];
 

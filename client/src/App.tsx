@@ -3,6 +3,7 @@
 
 import { Switch, Route } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 // --- Páginas Públicas ---
 import Home from "@/pages/Home";
@@ -25,7 +26,7 @@ import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 function App() {
     return (
-        <>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
             <Switch>
                 {/* --- Rotas Públicas --- */}
                 <Route path="/" component={Home} />
@@ -48,7 +49,7 @@ function App() {
                 <Route component={NotFound} />
             </Switch>
             <Toaster />
-        </>
+        </ThemeProvider>
     );
 }
 

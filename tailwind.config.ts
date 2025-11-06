@@ -85,9 +85,8 @@ export default {
         'brand-blue': '#0a192f',
       },
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        serif: ["Georgia", "serif"],
-        mono: ["Menlo", "monospace"],
+        serif: ["var(--font-serif)"],
+        mono: ["var(--font-mono)"],
       },
       keyframes: {
         "accordion-down": {

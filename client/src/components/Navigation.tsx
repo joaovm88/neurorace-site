@@ -4,7 +4,8 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MobileMenu } from "@/components/MobileMenu";
-import { LogIn, LogOut, LayoutDashboard } from "lucide-react";
+import { LogIn, LogOut, LayoutDashboard, Star } from "lucide-react";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 // 1. Importar o nosso hook de Autenticação e o Firebase
 import { useAuth } from "@/contexts/AuthContext";
@@ -19,7 +20,7 @@ const navItems = [
 ];
 
 export function Navigation() {
-    const [_, setLocation] = useLocation();
+    const [location, setLocation] = useLocation();
 
     // 2. Usar o hook de autenticação
     const { currentUser, loading } = useAuth();
@@ -51,8 +52,7 @@ export function Navigation() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                            >
+                                className={`text-sm font-medium transition-colors hover:text-primary ${location === item.href ? 'text-primary' : 'text-muted-foreground'}`}>
                                 {item.label}
                             </Link>
                         ))}
@@ -60,6 +60,21 @@ export function Navigation() {
                 </div>
 
                 <div className="flex items-center space-x-2">
+                    <Button 
+                      asChild
+                      size="sm"
+                      className="bg-gradient-to-r from-primary to-accent text-white font-bold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                    >
+                      <a 
+                        href="https://www.fiap.com.br/next/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <Star className="w-4 h-4 fill-current" />
+                        VOTE NO NEXT!
+                      </a>
+                    </Button>
                     {/* 4. Lógica Condicional de Botões */}
                     {!loading && (
                         <>
@@ -96,6 +111,8 @@ export function Navigation() {
                             )}
                         </>
                     )}
+
+                    <ThemeSwitcher />
 
                     {/* 5. Menu Mobile (VERSÃO CORRIGIDA) */}
                     {/* Passa as propriedades 'isLoggedIn' e 'onLogout' */}
