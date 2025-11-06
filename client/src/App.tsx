@@ -14,8 +14,8 @@ import RaceFinished from "@/pages/RaceFinished";
 import NotFound from "@/pages/not-found";
 
 // --- Páginas de Autenticação ---
-import Login from "@/pages/Login";
-import FinalizarLogin from "@/pages/FinalizarLogin";
+import { Login } from "@/pages/Login";
+import { FinalizarLogin } from "@/pages/FinalizarLogin";
 
 // --- Páginas Privadas (Exigem login) ---
 import Dashboard from "@/pages/Dashboard";
